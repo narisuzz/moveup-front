@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 /**
  * @ngdoc overview
@@ -427,6 +427,18 @@ angular
         controller: 'TvDetailCtrl',
         controllerAs: 'tvDetail',
       })
+      .when('/announcements/:type/:page/', {
+        templateUrl: 'views/announcements.html',
+        controller: 'AnnouncementsCtrl',
+        controllerAs: 'announcements',
+      })
+      .when('/announcementsDetail/:uuid/', {
+        templateUrl: 'views/announcementsDetail.html',
+        controller: 'AnnouncementsDetailCtrl',
+        controllerAs: 'announcementsDetail',
+      })
+
+
       .when('/settings/', {
         templateUrl: 'views/myPageSettings.html',
         controller: 'SettingsCtrl',

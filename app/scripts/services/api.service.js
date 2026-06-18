@@ -16,7 +16,7 @@ angular.module('moveupApp')
         // Grunt build automatic replace end
         // var API_BASE = 'http://54.95.211.232'; // for prod2 test
       // var API_BASE = 'http://3.20.225.251';
-      var API_BASE = 'http://localhost:8081';
+      var API_BASE = 'http://57.182.244.32:8080/moveup';
         // すべてのAPIの定義
         var API_PATH = {
             AUTH_FACEBOOK: '/api/auth/facebook/',
@@ -89,6 +89,8 @@ angular.module('moveupApp')
             POINT_AD: '/api/coin/ad/',
             TV_LIST: '/api/tvList/{type}/{limit}/{offset}/',
             TV_DETAIL: '/api/tv/detail/{uuid}/',
+            ANNOUNCEMENTS_LIST: '/api/announcementsList/{type}/{limit}/{offset}/',
+            ANNOUNCEMENTS_DETAIL: '/api/announcements/detail/{uuid}/',
             SETTINGS_MYPAGE:'/api/user/notify/',
             SETTINGS_NOTIFY:'/api/user/settings/{type}/{uuid}/{settingKey}/{settingValue}/'
         };
@@ -535,6 +537,14 @@ angular.module('moveupApp')
         this.getTvDetail = function(uuid, success, error) {
           httpGet(API_BASE+stringFormat(API_PATH.TV_DETAIL, {uuid:uuid}), success, error);
         };
+
+      this.getAnnouncementsList = function(type, limit, offset, success, error) {
+        httpGet(API_BASE+stringFormat(API_PATH.ANNOUNCEMENTS_LIST, {type:type,limit:limit,offset:offset}), success, error);
+      };
+
+      this.getAnnouncementsDetail = function(uuid, success, error) {
+        httpGet(API_BASE+stringFormat(API_PATH.ANNOUNCEMENTS_DETAIL, {uuid:uuid}), success, error);
+      };
 
         // 請求
         this.getSettings = function(success, error) {

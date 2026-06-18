@@ -351,4 +351,12 @@
     font-weight: bold;
     color: black;
 }
+  .rise_btn_submit1{
+    font-size: 14px;
+    height: 30px;
+    padding: 0 14px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
 }

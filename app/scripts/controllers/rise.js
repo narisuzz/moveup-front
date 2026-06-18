@@ -11,7 +11,7 @@ angular.module('moveupApp')
   .controller('RiseCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.hideFooter = false;
 
-    var $uri = 'http://localhost:8080/api/rise/list/12/0/';
+    var $uri = 'http://57.182.244.32:8080/moveup/api/rise/list/12/0/';
 
       $http({
         method : 'GET',

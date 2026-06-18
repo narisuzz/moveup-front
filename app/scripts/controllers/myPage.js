@@ -24,6 +24,7 @@
      $scope.freepaper = [];
      $scope.recruit = [];
      $scope.tv = [];
+     $scope.announcements = [];
      $scope.notifyChecked7 = true;
      $scope.pageSize = 10;
      $scope.lastPage = '';
@@ -73,7 +74,12 @@
                $scope.results.shopList[index].type = 'SHOP';
                $scope.results.shopList[index].status = 'PLACE';
                $scope.shop.push($scope.results.shopList[index]);
+             }else if ($scope.results.shopList[index].type == 30) {
+               $scope.results.shopList[index].type = 'ANNOUNCEMENTS';
+               $scope.results.shopList[index].status = 'ANNOUNCEMENTS';
+               $scope.announcements.push($scope.results.shopList[index]);
              }
+
          }
 
          if($scope.results.notifyList.length > 0){
@@ -169,6 +175,11 @@
                $scope.results.shopList[index].status = 'PLACE';
                $scope.shop.push($scope.results.shopList[index]);
              }
+             else if ($scope.results.shopList[index].type == 30) {
+               $scope.results.shopList[index].type = 'ANNOUNCEMENTS';
+               $scope.results.shopList[index].status = 'ANNOUNCEMENTS';
+               $scope.announcements.push($scope.results.shopList[index]);
+             }
          }
 
          if($scope.results.notifyList.length > 0){
@@ -233,6 +244,9 @@
        }else if (type == 'TV') {
          $location.path('/tvDetail/'+uuid+'/');
        }
+       else if (type == 'ANNOUNCEMENTS') {
+         $location.path('/announcementsDetail/'+uuid+'/');
+       }
        else {
          if(status == 'PLACE') {
            $location.path('/place/detail/'+uuid+'/');
@@ -271,6 +285,9 @@
 
      $scope.showFreepaper = function(){
        $location.path('/myPage/16/1/');
+     }
+     $scope.showAnnouncements = function(){
+       $location.path('/myPage/30/1/');
      }
 
      $scope.getPersonInfo = function(){
